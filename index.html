@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Brusaca | Excelência em Estética Masculina</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+            scroll-behavior: smooth;
+        }
+        
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)), 
+                        url('imagens/sergio\ 4.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .marble-bg {
+            background: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)), 
+                        url('https://images.unsplash.com/photo-1617050318658-a9a3175ed34c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .gold-text {
+            color: #D4AF37;
+        }
+        
+        .gold-border {
+            border-color: #D4AF37;
+        }
+        
+        .gold-bg {
+            background-color: #D4AF37;
+        }
+        
+        .service-card {
+            background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(212, 175, 55, 0.25);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.9));
+            border-left: 4px solid #D4AF37;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #D4AF37;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .btn-gold:hover {
+            background-color: #c2a030;
+        }
+        
+        .booking-form input, 
+        .booking-form select, 
+        .booking-form textarea {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .booking-form input:focus, 
+        .booking-form select:focus, 
+        .booking-form textarea:focus {
+            outline: none;
+            border-color: #D4AF37;
+            background-color: rgba(212, 175, 55, 0.05);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: #D4AF37;
+            transform: scale(1.2);
+        }
+        
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #D4AF37 50%, transparent 100%);
+        }
+        
+        .countdown-item {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="fixed w-full z-50 bg-black bg-opacity-90 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <h1 class="font-cinzel text-3xl font-bold gold-text">BRUSACA <span class="text-white">BARBER</span></h1>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-white font-medium">INÍCIO</a>
+                    <a href="#experience" class="nav-link text-white font-medium">EXPERIÊNCIA</a>
+                    <a href="#services" class="nav-link text-white font-medium">SERVIÇOS</a>
+                    <a href="#booking" class="nav-link text-white font-medium">AGENDAR</a>
+                    <a href="#contact" class="nav-link text-white font-medium">CONTATO</a>
+                </nav>
+                
+                <div class="hidden md:block">
+                    <a href="#booking" class="gold-bg text-black font-bold px-6 py-2 rounded hover:bg-opacity-90 transition duration-300">RESERVAR</a>
+                </div>
+                
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 text-white hover:text-gold-500">INÍCIO</a>
+                <a href="#experience" class="block py-2 text-white hover:text-gold-500">EXPERIÊNCIA</a>
+                <a href="#services" class="block py-2 text-white hover:text-gold-500">SERVIÇOS</a>
+                <a href="#booking" class="block py-2 text-white hover:text-gold-500">AGENDAR</a>
+                <a href="#contact" class="block py-2 text-white hover:text-gold-500">CONTATO</a>
+                <a href="#booking" class="block mt-4 gold-bg text-black font-bold px-6 py-2 rounded inline-block text-center">RESERVAR</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl animate-fade-in">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-px gold-bg mr-4"></div>
+                    <span class="gold-text uppercase tracking-widest text-sm">Excelência em estética masculina</span>
+                </div>
+                <h1 class="font-cinzel text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
+                    <span class="gold-text">A ARTE</span> DA BARBA <span class="gold-text">E DO</span> ESTILO
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-8">
+                    Na Barbearia Brusaca, cada corte é uma assinatura, cada barba uma obra de arte. Descubra o padrão ouro em cuidados masculinos.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#booking" class="gold-bg text-black font-bold px-8 py-3 rounded text-center hover:bg-opacity-90 transition duration-300">
+                        RESERVAR HORÁRIO
+                    </a>
+                    <a href="#services" class="border-2 gold-border text-white font-bold px-8 py-3 rounded text-center hover:bg-gold-500 hover:bg-opacity-10 transition duration-300">
+                        NOSSOS SERVIÇOS
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 marble-bg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-cinzel text-3xl md:text-4xl font-bold mb-4 gold-text">A EXPERIÊNCIA BRUSACA</h2>
+                <div class="divider w-32 h-px mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-lg text-gray-300">
+                    Onde tradição e modernidade se encontram para criar a experiência definitiva em cuidados masculinos.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="animate-fade-in">
+                    <div class="bg-black bg-opacity-60 p-8 rounded-lg border border-gray-800 hover:border-gold-500 transition duration-300 h-full">
+                        <div class="gold-text text-4xl mb-4">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-semibold mb-3 text-white">ARTESANATO DE PRECISÃO</h3>
+                        <p class="text-gray-300">
+                            Nossos mestres barbeiros dominam técnicas ancestrais combinadas com as últimas inovações, garantindo resultados impecáveis.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="animate-fade-in" style="transition-delay: 0.2s;">
+                    <div class="bg-black bg-opacity-60 p-8 rounded-lg border border-gray-800 hover:border-gold-500 transition duration-300 h-full">
+                        <div class="gold-text text-4xl mb-4">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-semibold mb-3 text-white">AMBIENTE EXCLUSIVO</h3>
+                        <p class="text-gray-300">
+                            Couro italiano, madeira nobre e aço escovado compõem nosso espaço projetado para oferecer conforto e sofisticação.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="animate-fade-in" style="transition-delay: 0.4s;">
+                    <div class="bg-black bg-opacity-60 p-8 rounded-lg border border-gray-800 hover:border-gold-500 transition duration-300 h-full">
+                        <div class="gold-text text-4xl mb-4">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-semibold mb-3 text-white">PRODUTOS DE LUXO</h3>
+                        <p class="text-gray-300">
+                            Utilizamos exclusivamente linhas premium de produtos artesanais, selecionados entre os melhores do mundo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center animate-fade-in">
+                <div class="inline-flex items-center">
+                    <div class="w-12 h-px gold-bg mr-4"></div>
+                    <span class="gold-text uppercase tracking-widest text-sm">Pronto para sua transformação?</span>
+                    <div class="w-12 h-px gold-bg ml-4"></div>
+                </div>
+                <h3 class="font-cinzel text-2xl md:text-3xl font-bold mt-4 mb-6 text-white">
+                    AGENDE SUA EXPERIÊNCIA HOJE
+                </h3>
+                <a href="#booking" class="gold-bg text-black font-bold px-8 py-3 rounded inline-block hover:bg-opacity-90 transition duration-300">
+                    RESERVAR AGORA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-cinzel text-3xl md:text-4xl font-bold mb-4 gold-text">SERVIÇOS PREMIUM</h2>
+                <div class="divider w-32 h-px mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-lg text-gray-300">
+                    Cada serviço é meticulosamente elaborado para atender homens que exigem excelência em cada detalhe.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="animate-fade-in">
+                    <div class="service-card p-8 rounded-lg h-full">
+                        <div class="gold-text text-5xl mb-6">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h3 class="font-cinzel text-2xl font-semibold mb-4 text-white">CORTE DE CABELO PREMIUM</h3>
+                        <p class="text-gray-300 mb-6">
+                            Técnicas precisas para criar o visual que complementa seu estilo de vida e personalidade, com finalização impecável.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="gold-text text-xl font-bold">R$ 150</span>
+                            <a href="#booking" class="text-white border-b gold-border pb-1 hover:text-gold-500 transition duration-300">AGENDAR</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate-fade-in" style="transition-delay: 0.1s;">
+                    <div class="service-card p-8 rounded-lg h-full">
+                        <div class="gold-text text-5xl mb-6">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="font-cinzel text-2xl font-semibold mb-4 text-white">RITUAL DA BARBA</h3>
+                        <p class="text-gray-300 mb-6">
+                            Experiência completa com toalha quente, óleos essenciais e finalização com produtos artesanais para uma barba impecável.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="gold-text text-xl font-bold">R$ 120</span>
+                            <a href="#booking" class="text-white border-b gold-border pb-1 hover:text-gold-500 transition duration-300">AGENDAR</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate-fade-in" style="transition-delay: 0.2s;">
+                    <div class="service-card p-8 rounded-lg h-full">
+                        <div class="gold-text text-5xl mb-6">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="font-cinzel text-2xl font-semibold mb-4 text-white">EXPERIÊNCIA COMPLETA</h3>
+                        <p class="text-gray-300 mb-6">
+                            Corte + barba + tratamento capilar + massagem relaxante. O pacote definitivo de cuidados masculinos.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="gold-text text-xl font-bold">R$ 220</span>
+                            <a href="#booking" class="text-white border-b gold-border pb-1 hover:text-gold-500 transition duration-300">AGENDAR</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate-fade-in" style="transition-delay: 0.3s;">
+                    <div class="service-card p-8 rounded-lg h-full">
+                        <div class="gold-text text-5xl mb-6">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3 class="font-cinzel text-2xl font-semibold mb-4 text-white">TRATAMENTO FACIAL VIP</h3>
+                        <p class="text-gray-300 mb-6">
+                            Limpeza profunda, hidratação e revitalização para uma pele mais saudável e rejuvenescida.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="gold-text text-xl font-bold">R$ 180</span>
+                            <a href="#booking" class="text-white border-b gold-border pb-1 hover:text-gold-500 transition duration-300">AGENDAR</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate-fade-in" style="transition-delay: 0.4s;">
+                    <div class="service-card p-8 rounded-lg h-full">
+                        <div class="gold-text text-5xl mb-6">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3 class="font-cinzel text-2xl font-semibold mb-4 text-white">COLORAÇÃO DE LUXO</h3>
+                        <p class="text-gray-300 mb-6">
+                            Técnicas avançadas de coloração com produtos que preservam a saúde dos fios e couro cabeludo.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="gold-text text-xl font-bold">R$ 250</span>
+                            <a href="#booking" class="text-white border-b gold-border pb-1 hover:text-gold-500 transition duration-300">AGENDAR</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate-fade-in" style="transition-delay: 0.5s;">
+                    <div class="service-card p-8 rounded-lg h-full">
+                        <div class="gold-text text-5xl mb-6">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3 class="font-cinzel text-2xl font-semibold mb-4 text-white">PACOTE EXECUTIVO</h3>
+                        <p class="text-gray-300 mb-6">
+                            Atendimento privativo, bebidas premium e todos os tratamentos em um só lugar. Experiência definitiva.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="gold-text text-xl font-bold">R$ 400</span>
+                            <a href="#booking" class="text-white border-b gold-border pb-1 hover:text-gold-500 transition duration-300">AGENDAR</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-20 marble-bg">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-black bg-opacity-70 rounded-lg overflow-hidden shadow-xl">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-cover bg-center hidden md:block" style="background-image: url('imagens/brusacas.jpeg');"></div>
+                    
+                    <div class="md:w-1/2 p-8 md:p-10">
+                        <h2 class="font-cinzel text-3xl font-bold mb-6 gold-text">RESERVE SEU HORÁRIO</h2>
+                        <p class="text-gray-300 mb-8">
+                            Preencha o formulário e nosso concierge entrará em contato para confirmar seu horário exclusivo.
+                        </p>
+                        
+                        <form onsubmit="enviarParaWhatsApp(event)" class="booking-form space-y-4">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_subject" value="Nova Reserva - Barbearia Brusaca">
+                            <input type="hidden" name="_template" value="box">
+
+                            <input type="text" name="nome" placeholder="Seu Nome Completo" class="w-full px-4 py-3 rounded bg-white bg-opacity-10 text-white" required>
+                            <input type="email" name="email" placeholder="Seu Melhor E-mail" class="w-full px-4 py-3 rounded bg-white bg-opacity-10 text-white" required>
+                            <input type="tel" name="telefone" placeholder="Telefone com DDD" class="w-full px-4 py-3 rounded bg-white bg-opacity-10 text-white" required>
+                            
+                            <select name="serviço" class="w-full px-4 py-3 rounded bg-white bg-opacity-10 text-white" required>
+                                <option value="">Selecione um Serviço</option>
+                                <option value="Corte de Cabelo Premium">Corte de Cabelo Premium</option>
+                                <option value="Ritual da Barba">Ritual da Barba</option>
+                                <option value="Experiência Completa">Experiência Completa</option>
+                                <option value="Tratamento Facial VIP">Tratamento Facial VIP</option>
+                                <option value="Coloração de Luxo">Coloração de Luxo</option>
+                                <option value="Pacote Executivo">Pacote Executivo</option>
+                            </select>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="date" name="data" class="w-full px-4 py-3 rounded bg-white bg-opacity-10 text-white" required>
+                                <select name="horário" class="w-full px-4 py-3 rounded bg-white bg-opacity-10 text-white" required>
+                                    <option value="">Horário</option>
+                                    <option>10:00</option>
+                                    <option>11:00</option>
+                                    <option>12:00</option>
+                                    <option>14:00</option>
+                                    <option>15:00</option>
+                                    <option>16:00</option>
+                                    <option>17:00</option>
+                                    <option>18:00</option>
+                                </select>
+                            </div>
+
+                            <textarea name="observações" placeholder="Observações (opcional)" rows="3" class="w-full px-4 py-3 rounded bg-white bg-opacity-10 text-white"></textarea>
+
+                            <button type="submit" class="w-full bg-[#D4AF37] text-black font-bold py-3 rounded hover:bg-opacity-90 transition duration-300">
+                                SOLICITAR RESERVA
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-cinzel text-3xl md:text-4xl font-bold mb-4 gold-text">DEPOIMENTOS</h2>
+                <div class="divider w-32 h-px mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-lg text-gray-300">
+                    A excelência não é um acidente, é um compromisso diário que celebramos com nossos clientes.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="animate-fade-in">
+                    <div class="testimonial-card p-8 rounded-lg h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="gold-text text-xl mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic mb-6">
+                            "A Barbearia Brusaca redefine o padrão. Nunca tinha experimentado um serviço tão impecável. Meu barbeiro entende exatamente o que quero, mesmo quando não sei explicar."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-700 mr-4 overflow-hidden">
+                                <img src="imagens/neymar.jpg" alt="Cliente" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Neymar Jr</h4>
+                                <p class="text-sm text-gray-400">Jogador</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate-fade-in" style="transition-delay: 0.2s;">
+                    <div class="testimonial-card p-8 rounded-lg h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="gold-text text-xl mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic mb-6">
+                            "Não é apenas um corte de cabelo, é uma experiência. A atenção aos detalhes, o ambiente sofisticado e o whisky de cortesia fazem toda diferença. Vale cada centavo."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-700 mr-4 overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Cliente" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Fernando Costa</h4>
+                                <p class="text-sm text-gray-400">Diretor Financeiro</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate-fade-in" style="transition-delay: 0.4s;">
+                    <div class="testimonial-card p-8 rounded-lg h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="gold-text text-xl mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic mb-6">
+                            "Depois de conhecer a Brusaca, não consigo mais frequentar outras barbearias. O nível de profissionalismo e os produtos de alta qualidade fazem com que meu visual permaneça impecável por semanas."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-700 mr-4 overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Cliente" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Gustavo Henrique</h4>
+                                <p class="text-sm text-gray-400">Empreendedor</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="font-cinzel text-3xl md:text-4xl font-bold mb-4 gold-text">NOSSO ESPAÇO</h2>
+                    <div class="divider w-32 h-px mx-auto mb-6"></div>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-300">
+                        Visite-nos e experimente pessoalmente o padrão Brusaca de excelência em cuidados masculinos.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="animate-fade-in">
+                        <h3 class="font-cinzel text-2xl font-semibold mb-6 text-white">INFORMAÇÕES</h3>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="gold-text text-xl mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">ENDEREÇO</h4>
+                                <p class="text-gray-300">Rua Irineu Santos - Centro<br>Humberto de Campos - MA</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="gold-text text-xl mr-4 mt-1">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">TELEFONE</h4>
+                                <p class="text-gray-300">(11) 9999-9999</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="gold-text text-xl mr-4 mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">E-MAIL</h4>
+                                <p class="text-gray-300">contato@barbeariabrusaca.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="gold-text text-xl mr-4 mt-1">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">HORÁRIO</h4>
+                                <p class="text-gray-300">
+                                    Segunda a Sexta: 10h às 20h<br>
+                                    Sábado: 09h às 18h<br>
+                                    Domingo: Fechado
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold text-white mb-4">REDES SOCIAIS</h4>
+                            <div class="flex space-x-6">
+                                <a href="#" class="social-icon text-gray-400 text-xl">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-icon text-gray-400 text-xl">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-icon text-gray-400 text-xl">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="animate-fade-in" style="transition-delay: 0.2s;">
+    <h3 class="font-cinzel text-2xl font-semibold mb-6 text-white">MAPA</h3>
+    <div class="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg overflow-hidden">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.245359083965!2d-43.4627041!3d-2.6044735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f16715f280ec97%3A0xf6e5f57cdfb266f6!2sBarbearia%20Bruzaca%20-%20HC!5e0!3m2!1spt-BR!2sbr!4v1689876503352!5m2!1spt-BR!2sbr" 
+                width="100%" height="100%" style="min-height: 400px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="font-cinzel text-3xl font-bold gold-text">BRUSACA BARBER</h2>
+                    <p class="text-gray-400 mt-2">Excelência em cuidados masculinos desde 2010.</p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-6 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-gold-500 transition duration-300">Termos</a>
+                        <a href="#" class="text-gray-400 hover:text-gold-500 transition duration-300">Privacidade</a>
+                        <a href="#booking" class="text-gray-400 hover:text-gold-500 transition duration-300">Agendamento</a>
+                    </div>
+                    <p class="text-gray-500 text-sm">© 2023 Barbearia Brusaca. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-gray-800 text-white w-12 h-12 rounded-full flex items-center justify-center opacity-0 invisible transition-all duration-300 shadow-lg hover:bg-gold-500 hover:text-black">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form Submission
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Obrigado pelo seu contato! Nossa equipe entrará em contato em breve para confirmar sua reserva.');
+                form.reset();
+            });
+        });
+        
+        // Animate elements when they come into view
+        const animateElements = () => {
+            const elements = document.querySelectorAll('.animate-fade-in');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementPosition < windowHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        // Initialize animations
+        window.addEventListener('load', animateElements);
+        window.addEventListener('scroll', animateElements);
+        
+        // Initialize all animations on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Trigger animations for elements already in view
+            setTimeout(animateElements, 300);
+        });
+
+        function enviarParaWhatsApp(event) {
+    event.preventDefault();
+
+    const nome = document.querySelector('input[name="nome"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const telefone = document.querySelector('input[name="telefone"]').value;
+    const servico = document.querySelector('select[name="serviço"]').value;
+    const data = document.querySelector('input[name="data"]').value;
+    const horario = document.querySelector('select[name="horário"]').value;
+    const observacoes = document.querySelector('textarea[name="observações"]').value;
+
+    const mensagem = `🧔‍♂️ *Novo Agendamento na Brusaca Barber* 🕒
+*Nome:* ${nome}
+*Telefone:* ${telefone}
+*E-mail:* ${email}
+*Serviço:* ${servico}
+*Data:* ${data}
+*Horário:* ${horario}
+*Observações:* ${observacoes || "Nenhuma"}
+
+Por favor, confirmar o agendamento.`;
+
+    const numeroWhatsApp = '559892345695'; // Substitua com seu número real com DDD
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+
+    window.open(url, '_blank');
+  }
+    </script>
+</body>
+</html>
